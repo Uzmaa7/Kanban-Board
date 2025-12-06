@@ -49,3 +49,18 @@ addDragEventsOnColumn(done);
 // progress.addEventListener("dragleave", (e)=>{
 //     progress.classList.remove("hover-over");
 // })
+
+// Modal related logic
+const toggleModalButton = document.querySelector("#toggle-modal");
+const modalBg = document.querySelector(".modal .bg");
+const modal = document.querySelector('.modal');
+
+toggleModalButton.addEventListener("click", ()=>{
+    modal.classList.toggle("active")
+})
+
+modalBg.addEventListener("click", ()=>{
+    modal.classList.remove("active")
+})
+
+// Modal related logic
