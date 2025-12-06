@@ -50,6 +50,8 @@ addDragEventsOnColumn(done);
 //     progress.classList.remove("hover-over");
 // })
 
+
+
 // Modal related logic
 const toggleModalButton = document.querySelector("#toggle-modal");
 const modalBg = document.querySelector(".modal .bg");
@@ -64,3 +66,28 @@ modalBg.addEventListener("click", ()=>{
 })
 
 // Modal related logic
+
+const addTaskButton = document.querySelector("#add-new-task");
+addTaskButton.addEventListener("click", ()=>{
+
+    const taskTitle = document.querySelector("#task-title-input").value;
+    const taskDesc = document.querySelector("#task-description-input").value;
+
+    const div = document.createElement('div');
+    div.classList.add("task");
+    div.setAttribute("draggable", "true");
+    div.innerHTML = `
+        <h3>${taskTitle}</h3>
+        <p>${taskDesc}</p>
+        <button>Delete</button>
+    `
+    todo.appendChild(div);
+
+    div.addEventListener("drag", ()=>{
+        dragElement = div;
+    })
+
+    modal.classList.remove("active")
+
+
+})
